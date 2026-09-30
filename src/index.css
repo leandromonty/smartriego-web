@@ -23,3 +23,28 @@ a { text-decoration: none; color: inherit; }
 .card { padding: 1.5rem; border-radius: 12px; background: var(--verde-claro); }
 
 .footer { text-align: center; padding: 1.5rem; background: var(--verde); color: white; }
+
+/* Tienda */
+
+.tienda { padding: 3rem 2rem; max-width: 1000px; margin: 0 auto; }
+.tienda h2 { margin-bottom: 1.5rem; }
+
+.productos { display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.product-card { border-radius: 12px; overflow: hidden; background: var(--verde-claro); }
+.product-card img { width: 100%; display: block; }
+.product-info { padding: 1.2rem; }
+.product-info h3 { margin-bottom: .4rem; }
+.product-info ul { margin: .8rem 0 .8rem 1.2rem; }
+.precio { font-size: 1.4rem; font-weight: bold; margin: .8rem 0; }
+
+.btn { border: none; cursor: pointer; font-size: 1rem; }
+
+.carrito { margin-top: 2.5rem; padding: 1.5rem; border: 2px solid var(--verde-claro);
+  border-radius: 12px; }
+.carrito-item { display: flex; justify-content: space-between; gap: 1rem;
+  padding: .5rem 0; border-bottom: 1px solid var(--verde-claro); }
+.carrito-item button { border: none; background: var(--verde-claro); border-radius: 6px;
+  width: 28px; cursor: pointer; }
+.total { font-weight: bold; margin: 1rem 0; }
