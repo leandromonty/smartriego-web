@@ -52,3 +52,15 @@ a { text-decoration: none; color: inherit; }
 /* Carrito*/
 .badge { background: white; color: var(--verde); border-radius: 999px;
   padding: 0 .5rem; margin-left: .3rem; font-size: .85rem; font-weight: bold; }
+
+  /* FAQ */
+
+  .faq { padding: 3rem 2rem; max-width: 720px; margin: 0 auto; }
+.faq h2 { margin-bottom: 1.5rem; }
+
+.faq-item { border-radius: 12px; background: var(--verde-claro); margin-bottom: .8rem; }
+.faq-pregunta { width: 100%; display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; padding: 1rem 1.2rem; border: none; background: none; cursor: pointer;
+  font-size: 1rem; font-weight: 600; text-align: left; color: var(--texto); }
+.faq-icono { font-size: 1.4rem; color: var(--verde); }
+.faq-respuesta { padding: 0 1.2rem 1.2rem; line-height: 1.5; }
