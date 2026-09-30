@@ -1,31 +1,9 @@
-import { useState } from "react";
 import { productos } from "../data/productos";
 import ProductCard from "../components/ProductCard";
+import { useCarrito } from "../context/useCarrito";
 
 export default function Tienda() {
-  const [carrito, setCarrito] = useState([]); // [{ ...producto, cantidad }]
-
-  const agregar = (producto) => {
-    setCarrito((actual) => {
-      const existe = actual.find((item) => item.id === producto.id);
-      if (existe) {
-        return actual.map((item) =>
-          item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
-        );
-      }
-      return [...actual, { ...producto, cantidad: 1 }];
-    });
-  };
-
-  const quitar = (id) => {
-    setCarrito((actual) =>
-      actual
-        .map((item) => (item.id === id ? { ...item, cantidad: item.cantidad - 1 } : item))
-        .filter((item) => item.cantidad > 0)
-    );
-  };
-
-  const total = carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
+  const { carrito, agregar, quitar, total } = useCarrito();
 
   return (
     <section className="tienda">

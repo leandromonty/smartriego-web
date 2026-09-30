@@ -48,3 +48,7 @@ a { text-decoration: none; color: inherit; }
 .carrito-item button { border: none; background: var(--verde-claro); border-radius: 6px;
   width: 28px; cursor: pointer; }
 .total { font-weight: bold; margin: 1rem 0; }
+
+/* Carrito*/
+.badge { background: white; color: var(--verde); border-radius: 999px;
+  padding: 0 .5rem; margin-left: .3rem; font-size: .85rem; font-weight: bold; }
