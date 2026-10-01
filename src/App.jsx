@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import CarritoDrawer from './components/CarritoDrawer'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Tienda from './pages/Tienda'
@@ -10,6 +11,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <CarritoDrawer />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

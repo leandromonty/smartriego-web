@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { CarritoContext } from "./carritoContext";
 
 export default function CarritoProvider({ children }) {
-  // Al iniciar, intenta recuperar el carrito guardado en el navegador
   const [carrito, setCarrito] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("carrito")) || [];
@@ -10,8 +9,8 @@ export default function CarritoProvider({ children }) {
       return [];
     }
   });
+  const [abierto, setAbierto] = useState(false);
 
-  // Cada vez que cambia el carrito, lo guarda
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
@@ -28,6 +27,7 @@ export default function CarritoProvider({ children }) {
     });
   };
 
+  // Resta una unidad; si llega a 0, el producto sale del carrito
   const quitar = (id) => {
     setCarrito((actual) =>
       actual
@@ -36,11 +36,26 @@ export default function CarritoProvider({ children }) {
     );
   };
 
+  // Saca el producto completo, sin importar la cantidad
+  const eliminar = (id) => setCarrito((actual) => actual.filter((item) => item.id !== id));
+
+  const vaciar = () => setCarrito([]);
+
+  const cantidadDe = (id) => carrito.find((item) => item.id === id)?.cantidad || 0;
+
+  const abrirCarrito = () => setAbierto(true);
+  const cerrarCarrito = () => setAbierto(false);
+
   const total = carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
   const cantidadTotal = carrito.reduce((suma, item) => suma + item.cantidad, 0);
 
   return (
-    <CarritoContext.Provider value={{ carrito, agregar, quitar, total, cantidadTotal }}>
+    <CarritoContext.Provider
+      value={{
+        carrito, agregar, quitar, eliminar, vaciar, cantidadDe,
+        total, cantidadTotal, abierto, abrirCarrito, cerrarCarrito,
+      }}
+    >
       {children}
     </CarritoContext.Provider>
   );
