@@ -1,4 +1,10 @@
-export default function ProductCard({ producto, onAgregar }) {
+import { useCarrito } from "../context/useCarrito";
+import Cantidad from "./Cantidad";
+
+export default function ProductCard({ producto }) {
+  const { agregar, quitar, cantidadDe } = useCarrito();
+  const cantidad = cantidadDe(producto.id);
+
   return (
     <article className="product-card">
       <img src={producto.imagen} alt={producto.nombre} />
@@ -11,9 +17,18 @@ export default function ProductCard({ producto, onAgregar }) {
           ))}
         </ul>
         <p className="precio">${producto.precio.toLocaleString("es-AR")}</p>
-        <button className="btn" onClick={() => onAgregar(producto)}>
-          Agregar al carrito
-        </button>
+
+        {cantidad === 0 ? (
+          <button className="btn" onClick={() => agregar(producto)}>
+            Agregar al carrito
+          </button>
+        ) : (
+          <Cantidad
+            cantidad={cantidad}
+            onMas={() => agregar(producto)}
+            onMenos={() => quitar(producto.id)}
+          />
+        )}
       </div>
     </article>
   );
