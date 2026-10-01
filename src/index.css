@@ -187,3 +187,28 @@ html { scroll-behavior: smooth; }
 .drawer-footer .btn { width: 100%; margin-bottom: .6rem; text-align: center; }
 .btn-limpiar { width: 100%; padding: .5rem; background: none; border: none;
   color: #c62828; font-size: .95rem; cursor: pointer; }
+
+  /* Modal Carrito */
+.modal-overlay { position: fixed; inset: 0; z-index: 40; display: flex;
+  align-items: center; justify-content: center; padding: 1rem;
+  background: rgba(0, 0, 0, .55); animation: modal-fondo .2s; }
+
+.modal { width: min(420px, 100%); background: white; border-radius: 16px;
+  padding: 1.8rem 1.5rem 1.4rem; text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .3); animation: modal-entrada .2s; }
+.modal h3 { margin-bottom: .6rem; font-size: 1.25rem; }
+.modal p { margin-bottom: 1.5rem; line-height: 1.5; color: #4a5a4d; }
+
+.modal-botones { display: flex; gap: .8rem; }
+.modal-botones button { flex: 1; padding: .75rem; border-radius: 10px; font-size: 1rem;
+  font-weight: 600; cursor: pointer; border: 2px solid transparent; }
+
+.modal-cancelar { background: var(--verde-claro); color: var(--verde); }
+.modal-cancelar:hover { border-color: var(--verde); }
+.modal-confirmar { background: var(--verde); color: white; }
+.modal-confirmar.peligro { background: #c62828; }
+.modal-confirmar:hover { filter: brightness(1.1); }
+
+@keyframes modal-fondo { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-entrada { from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to { opacity: 1; transform: none; } }

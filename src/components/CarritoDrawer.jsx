@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ConfirmModal from "./ConfirmModal";
 import { useCarrito } from "../context/useCarrito";
 import Cantidad from "./Cantidad";
 
@@ -7,18 +8,22 @@ export default function CarritoDrawer() {
     carrito, agregar, quitar, eliminar, vaciar,
     total, cantidadTotal, abierto, cerrarCarrito,
   } = useCarrito();
+  const [confirmando, setConfirmando] = useState(false);
 
-  // Cierra con la tecla Esc
-  useEffect(() => {
-    if (!abierto) return;
-    const onKey = (e) => e.key === "Escape" && cerrarCarrito();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [abierto, cerrarCarrito]);
-
-  const handleVaciar = () => {
-    if (window.confirm("¿Querés vaciar el carrito?")) vaciar();
+// Esc cierra el panel, salvo que el modal esté abierto (ahí lo maneja el modal)
+useEffect(() => {
+  if (!abierto) return;
+  const onKey = (e) => {
+    if (e.key === "Escape" && !confirmando) cerrarCarrito();
   };
+  window.addEventListener("keydown", onKey);
+  return () => window.removeEventListener("keydown", onKey);
+}, [abierto, confirmando, cerrarCarrito]);
+
+const handleVaciar = () => {
+  vaciar();
+  setConfirmando(false);
+};
 
   return (
     <>
@@ -70,7 +75,18 @@ export default function CarritoDrawer() {
               </div>
               {/* PLACEHOLDER: conectar este botón con la página de checkout */}
               <button className="btn">Finalizar compra</button>
-              <button className="btn-limpiar" onClick={handleVaciar}>Vaciar carrito</button>
+              <button className="btn-limpiar" onClick={() => setConfirmando(true)}>Vaciar carrito</button>
+              {confirmando && (
+              <ConfirmModal
+                titulo="¿Vaciar el carrito?"
+                mensaje="Se van a quitar todos los productos. Esta acción no se puede deshacer."
+                textoConfirmar="Sí, vaciar"
+                textoCancelar="Cancelar"
+                peligro
+                onConfirmar={handleVaciar}
+                onCancelar={() => setConfirmando(false)}
+              />
+            )}
             </footer>
           </>
         )}
