@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useCarrito } from '../context/useCarrito'
+import { useAuth } from '../context/useAuth'
 
 export default function Navbar() {
   const { cantidadTotal, abrirCarrito } = useCarrito()
+  const { usuario, logout } = useAuth()
   const [abierto, setAbierto] = useState(false)
 
   const cerrar = () => setAbierto(false)
@@ -17,6 +19,23 @@ export default function Navbar() {
         <NavLink to="/tienda" onClick={cerrar}>Tienda</NavLink>
         <NavLink to="/faq" onClick={cerrar}>FAQ</NavLink>
         <NavLink to="/contacto" onClick={cerrar}>Contacto</NavLink>
+
+        {usuario ? (
+          <>
+            <span className="nav-usuario">Hola, {usuario.nombre}</span>
+            <button
+              className="nav-salir"
+              onClick={() => {
+                logout()
+                cerrar()
+              }}
+            >
+              Salir
+            </button>
+          </>
+        ) : (
+          <NavLink to="/login" onClick={cerrar}>Ingresar</NavLink>
+        )}
       </nav>
 
       <div className="navbar-acciones">
