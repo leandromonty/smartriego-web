@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {usuario ? (
           <>
-            <span className="nav-usuario">Hola, {usuario.nombre}</span>
+            <NavLink to="/cuenta" onClick={cerrar}>Hola, {usuario.nombre}</NavLink>
             <button
               className="nav-salir"
               onClick={() => {

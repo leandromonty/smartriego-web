@@ -7,6 +7,7 @@ import Tienda from './pages/Tienda'
 import FAQ from './pages/FAQ'
 import Contacto from './pages/Contacto'
 import Acceso from './pages/Acceso'
+import Cuenta from './pages/Cuenta'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Acceso modo="login" />} />
           <Route path="/registro" element={<Acceso modo="registro" />} />
+          <Route path="/cuenta" element={<Cuenta />} />
         </Routes>
       </main>
       <Footer />
