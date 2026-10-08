@@ -248,3 +248,23 @@ html { scroll-behavior: smooth; }
   flex-wrap: wrap; padding: 1rem 1.2rem; border-radius: 12px; background: var(--verde-claro); }
 .codigo-card code { font-size: 1.15rem; font-weight: bold; letter-spacing: .08em;
   color: var(--verde); }
+
+  /* Cuenta */
+  .cuenta { padding: 3rem 2rem; max-width: 720px; margin: 0 auto; }
+.cuenta h2 { margin-bottom: .5rem; }
+.cuenta h3 { margin: 2rem 0 .8rem; }
+
+.btn-copiar { border: 2px solid var(--verde); background: white; color: var(--verde);
+  border-radius: 8px; padding: .3rem .8rem; font-weight: 600; cursor: pointer; }
+
+.pedidos-lista { display: grid; gap: .8rem; }
+.pedido-card { padding: 1rem 1.2rem; border-radius: 12px; background: var(--verde-claro); }
+.pedido-cabecera { display: flex; justify-content: space-between; align-items: center; }
+.pedido-fecha { font-size: .85rem; opacity: .7; margin-bottom: .5rem; }
+.pedido-total { margin-top: .5rem; font-weight: bold; }
+
+.estado { padding: .15rem .7rem; border-radius: 999px; font-size: .8rem; font-weight: 600;
+  text-transform: capitalize; background: #fff8e1; color: #8a6d00; }
+.estado-pagado, .estado-entregado { background: #c8e6c9; color: #1b5e20; }
+.estado-enviado { background: #bbdefb; color: #0d47a1; }
+.estado-cancelado { background: #ffcdd2; color: #b71c1c; }
