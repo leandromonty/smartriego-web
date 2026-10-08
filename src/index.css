@@ -249,8 +249,9 @@ html { scroll-behavior: smooth; }
 .codigo-card code { font-size: 1.15rem; font-weight: bold; letter-spacing: .08em;
   color: var(--verde); }
 
+
   /* Cuenta */
-  .cuenta { padding: 3rem 2rem; max-width: 720px; margin: 0 auto; }
+.cuenta { padding: 3rem 2rem; max-width: 720px; margin: 0 auto; }
 .cuenta h2 { margin-bottom: .5rem; }
 .cuenta h3 { margin: 2rem 0 .8rem; }
 
@@ -268,3 +269,4 @@ html { scroll-behavior: smooth; }
 .estado-pagado, .estado-entregado { background: #c8e6c9; color: #1b5e20; }
 .estado-enviado { background: #bbdefb; color: #0d47a1; }
 .estado-cancelado { background: #ffcdd2; color: #b71c1c; }
+
