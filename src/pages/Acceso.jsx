@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
 
 export default function Acceso({ modo }) {
   const esRegistro = modo === 'registro'
   const { login, registro } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [datos, setDatos] = useState({ nombre: '', email: '', password: '' })
   const [error, setError] = useState('')
@@ -26,7 +27,7 @@ export default function Acceso({ modo }) {
     try {
       if (esRegistro) await registro(datos.nombre, datos.email, datos.password)
       else await login(datos.email, datos.password)
-      navigate('/')
+      navigate(location.state?.desde || '/')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -63,9 +64,15 @@ export default function Acceso({ modo }) {
 
       <p className="auth-cambio">
         {esRegistro ? (
-          <>¿Ya tenés cuenta? <Link to="/login">Iniciá sesión</Link></>
+          <>
+            ¿Ya tenés cuenta?{' '}
+            <Link to="/login" state={location.state}>Iniciá sesión</Link>
+          </>
         ) : (
-          <>¿Todavía no tenés cuenta? <Link to="/registro">Registrate</Link></>
+          <>
+            ¿Todavía no tenés cuenta?{' '}
+            <Link to="/registro" state={location.state}>Registrate</Link>
+          </>
         )}
       </p>
     </section>

@@ -229,22 +229,22 @@ html { scroll-behavior: smooth; }
   .nav-salir { align-self: flex-start; margin: .4rem 0 .8rem; }
 }
 
-/* cuenta */
-.cuenta { padding: 3rem 2rem; max-width: 720px; margin: 0 auto; }
-.cuenta h2 { margin-bottom: .5rem; }
-.cuenta h3 { margin: 2rem 0 .8rem; }
+/* Checkout */
+.checkout { padding: 3rem 2rem; max-width: 640px; margin: 0 auto; }
+.checkout h2 { margin-bottom: 1rem; }
+.checkout h3 { margin: 1.5rem 0 .5rem; }
+.checkout .btn { margin-top: 1rem; }
 
-.btn-copiar { border: 2px solid var(--verde); background: white; color: var(--verde);
-  border-radius: 8px; padding: .3rem .8rem; font-weight: 600; cursor: pointer; }
+.checkout-resumen { margin: 1.5rem 0; padding: 1rem 1.2rem; border-radius: 12px;
+  background: var(--verde-claro); }
+.checkout-linea { display: flex; justify-content: space-between; gap: 1rem; padding: .5rem 0; }
+.checkout-total { margin-top: .4rem; padding-top: .8rem; border-top: 2px solid white;
+  font-weight: bold; font-size: 1.2rem; }
+.checkout-aviso { margin-bottom: 1rem; padding: .8rem 1rem; border-radius: 8px;
+  background: #fff8e1; font-size: .9rem; }
 
-.pedidos-lista { display: grid; gap: .8rem; }
-.pedido-card { padding: 1rem 1.2rem; border-radius: 12px; background: var(--verde-claro); }
-.pedido-cabecera { display: flex; justify-content: space-between; align-items: center; }
-.pedido-fecha { font-size: .85rem; opacity: .7; margin-bottom: .5rem; }
-.pedido-total { margin-top: .5rem; font-weight: bold; }
-
-.estado { padding: .15rem .7rem; border-radius: 999px; font-size: .8rem; font-weight: 600;
-  text-transform: capitalize; background: #fff8e1; color: #8a6d00; }
-.estado-pagado, .estado-entregado { background: #c8e6c9; color: #1b5e20; }
-.estado-enviado { background: #bbdefb; color: #0d47a1; }
-.estado-cancelado { background: #ffcdd2; color: #b71c1c; }
+.codigos { display: grid; gap: .8rem; margin: 1rem 0; }
+.codigo-card { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  flex-wrap: wrap; padding: 1rem 1.2rem; border-radius: 12px; background: var(--verde-claro); }
+.codigo-card code { font-size: 1.15rem; font-weight: bold; letter-spacing: .08em;
+  color: var(--verde); }
