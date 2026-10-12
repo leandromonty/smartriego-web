@@ -1,11 +1,5 @@
 import { useState } from "react";
-
-// PLACEHOLDER: reemplazar por los datos reales de contacto
-const datosContacto = {
-  email: "contacto@smartriego.com", // placeholder
-  telefono: "+54 381 000-0000", // placeholder
-  ubicacion: "San Miguel de Tucumán, Argentina", // placeholder
-};
+import { datosContacto } from "../data/contacto";
 
 const formularioVacio = { nombre: "", email: "", mensaje: "" };
 
@@ -74,7 +68,9 @@ export default function Contacto() {
 
         <aside className="contacto-info">
           <h3>Datos de contacto</h3>
-          <p>📧 {datosContacto.email}</p>
+          <p>
+            📧 <a href={`mailto:${datosContacto.email}`}>{datosContacto.email}</a>
+          </p>
           <p>📞 {datosContacto.telefono}</p>
           <p>📍 {datosContacto.ubicacion}</p>
         </aside>

@@ -1,8 +1,7 @@
-// PLACEHOLDER: reemplazar por la imagen real del producto Estándar
-const ImagenProductoEstandar = "https://placehold.co/400x300/e8f5e9/2e7d32?text=Estandar"; // placeholder
-
-// PLACEHOLDER: reemplazar por la imagen real del producto Premium
-const ImagenProductoPremium = "https://placehold.co/400x300/e8f5e9/2e7d32?text=Premium"; // placeholder
+// Imágenes de los productos (ilustraciones en /public/img).
+// Si más adelante tenés fotos reales, cambiá solo estas dos rutas.
+const IMAGEN_PRODUCTO_ESTANDAR = '/img/producto-estandar.svg';
+const IMAGEN_PRODUCTO_PREMIUM = '/img/producto-premium.svg';
 
 export const productos = [
   {
@@ -10,7 +9,7 @@ export const productos = [
     nombre: "SmartRiego Estándar",
     descripcion: "Ideal para una o dos macetas en interior.", // placeholder
     precio: 110000, // placeholder (ARS)
-    imagen: ImagenProductoEstandar,
+    imagen: IMAGEN_PRODUCTO_ESTANDAR,
     caracteristicas: [
       "1 sensor de humedad capacitivo",
       "1 bomba sumergible",
@@ -23,7 +22,7 @@ export const productos = [
     nombre: "SmartRiego Premium",
     descripcion: "Para balcones y huertas urbanas pequeñas.", // placeholder
     precio: 150000, // placeholder (ARS)
-    imagen: ImagenProductoPremium,
+    imagen: IMAGEN_PRODUCTO_PREMIUM,
     caracteristicas: [
       "2 sensores de humedad capacitivos",
       "2 bombas sumergibles",

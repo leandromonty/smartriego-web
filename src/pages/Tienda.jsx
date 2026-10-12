@@ -8,6 +8,10 @@ export default function Tienda() {
   return (
     <section className="tienda">
       <h2>Elegí tu modelo</h2>
+      <p className="tienda-intro">
+        Elegí el equipo que mejor se adapte a tus plantas. Al comprar recibís tu
+        código de activación en la sección Mi cuenta.
+      </p>
 
       <div className="productos">
         {productos.map((p) => (

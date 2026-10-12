@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="Esquema: sensor, equipo, servidor y app">
+<defs><marker id="f" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2e7d32"/></marker></defs>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<g><rect x="20" y="70" width="190" height="160" rx="20" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3"/>
+<rect x="105" y="95" width="20" height="60" rx="5" fill="#37474f"/><path d="M60 175 q45 -25 90 0" stroke="#2a8fc4" stroke-width="6" fill="none"/><path d="M70 195 q35 -18 70 0" stroke="#5ec2ea" stroke-width="5" fill="none"/>
+<text x="115" y="222" font-size="17" font-weight="700" fill="#1b5e3a">Sensor de suelo</text></g>
+<line x1="215" y1="150" x2="285" y2="150" stroke="#2e7d32" stroke-width="4" marker-end="url(#f)"/>
+<g><rect x="290" y="70" width="190" height="160" rx="20" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3"/>
+<rect x="335" y="92" width="100" height="52" rx="8" fill="#1b3a2a"/><text x="385" y="125" font-family="monospace" font-size="22" font-weight="700" fill="#c9f7d0">62%</text>
+<circle cx="350" cy="170" r="7" fill="#43a047"/><circle cx="375" cy="170" r="7" fill="#fbc02d"/>
+<text x="385" y="212" font-size="17" font-weight="700" fill="#1b5e3a">Equipo + bomba</text></g>
+<line x1="485" y1="150" x2="555" y2="150" stroke="#2e7d32" stroke-width="4" marker-end="url(#f)"/>
+<g><rect x="560" y="70" width="190" height="160" rx="20" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3"/>
+<path d="M610 150 a22 22 0 0 1 4 -43 a30 30 0 0 1 58 6 a20 20 0 0 1 -2 37Z" fill="#5ec2ea"/><text x="655" y="192" font-size="13" fill="#1b5e3a">Wi-Fi · internet</text>
+<text x="655" y="215" font-size="17" font-weight="700" fill="#1b5e3a">Servidor y datos</text></g>
+<line x1="755" y1="150" x2="825" y2="150" stroke="#2e7d32" stroke-width="4" marker-end="url(#f)"/>
+<g><rect x="830" y="70" width="150" height="160" rx="20" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3"/>
+<rect x="880" y="88" width="50" height="86" rx="9" fill="#1b3a2a"/><rect x="886" y="98" width="38" height="50" rx="3" fill="#43a047"/><circle cx="905" cy="161" r="5" fill="#9be7a8"/>
+<text x="905" y="212" font-size="17" font-weight="700" fill="#1b5e3a">App Android</text></g>
+</g></svg>
