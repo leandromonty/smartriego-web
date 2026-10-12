@@ -81,14 +81,14 @@ p { line-height: 1.55; }
 
 /* PIE DE PÁGINA */
 
-.footer { padding: 2.5rem 1.5rem 1.5rem; background: var(--verde); color: white; }
-.footer-grid { max-width: 1000px; margin: 0 auto; display: grid; gap: 2rem;
+.footer { padding: 2.5rem 2rem 1.5rem; background: var(--verde); color: white; }
+.footer-grid { max-width: 936px; margin: 0 auto; display: grid; gap: 2rem;
   grid-template-columns: 1.4fr 1fr 1.2fr; }
 .footer-marca { font-size: 1.2rem; font-weight: bold; margin-bottom: .5rem; }
 .footer-texto { opacity: .9; font-size: .95rem; }
 .footer-links, .footer-contacto { display: flex; flex-direction: column; gap: .5rem; }
 .footer a:hover { text-decoration: underline; }
-.footer-legal { max-width: 1000px; margin: 2rem auto 0; padding-top: 1rem; text-align: center;
+.footer-legal { max-width: 936px; margin: 2rem auto 0; padding-top: 1rem; text-align: center;
   border-top: 1px solid rgba(255, 255, 255, .3); font-size: .85rem; opacity: .9; }
 
 /* Tienda */
@@ -377,4 +377,8 @@ p { line-height: 1.55; }
 .esquema-seccion { text-align: center; }
 .seccion-intro { max-width: 640px; margin: 0 auto 1.5rem; }
 .esquema { width: 100%; max-width: 900px; height: auto; display: block; margin: 0 auto; }
-@media (max-width: 600px) { .esquema { min-width: 560px; } .esquema-seccion { overflow-x: auto; } }
+@media (max-width: 600px) { .esquema { max-width: 320px; } }
+
+/* Footer siempre al pie, aunque la página tenga poco contenido */
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+#root > main { flex: 1; }

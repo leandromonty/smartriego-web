@@ -77,12 +77,15 @@ export default function Home() {
           El sensor mide, el equipo decide y riega, y el servidor guarda cada
           dato para que lo veas desde la app.
         </p>
-        <img
-          className="esquema"
-          src="/img/esquema.svg"
-          alt="Esquema: el sensor de suelo envía datos al equipo con bomba, que se conecta por Wi-Fi al servidor y a la app Android"
-          loading="lazy"
-        />
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/img/esquema-vertical.svg" />
+          <img
+            className="esquema"
+            src="/img/esquema.svg"
+            alt="Esquema: el sensor de suelo envía datos al equipo con bomba, que se conecta por Wi-Fi al servidor y a la app Android"
+            loading="lazy"
+          />
+        </picture>
       </section>
 
       <section className="banda">
