@@ -330,8 +330,6 @@ p { line-height: 1.55; }
 
   /* Acceso (login/registro) */
 
-.auth { padding: 3rem 2rem; max-width: 420px; margin: 0 auto; }
-.auth h2 { margin-bottom: 1.5rem; }
 .auth-cambio { margin-top: 1.2rem; text-align: center; }
 .auth-cambio a { color: var(--verde); font-weight: 600; }
 .btn:disabled { opacity: .6; cursor: wait; }
@@ -406,7 +404,7 @@ p { line-height: 1.55; }
 }
 
 @media (max-width: 600px) {
-  .tienda, .contacto, .faq, .auth, .checkout, .cuenta { padding: 2rem 1.25rem; }
+  .tienda, .contacto, .faq, .checkout, .cuenta { padding: 2rem 1.25rem; }
   .seccion { padding: 2.75rem 1.25rem; }
   .seccion h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
   .beneficios { padding: 2rem 1.25rem; }
@@ -425,3 +423,45 @@ p { line-height: 1.55; }
 /* Footer siempre al pie, aunque la página tenga poco contenido */
 #root { min-height: 100vh; display: flex; flex-direction: column; }
 #root > main { flex: 1; }
+
+/* Acceso: ingresar y registro */
+.acceso { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 60px); }
+.acceso-panel { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: .8rem;
+  padding: 3rem clamp(1.5rem, 5vw, 4.5rem); color: white; background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde) 100%); }
+.acceso-ilustracion { width: 100%; max-width: 240px; margin-bottom: .5rem; }
+.acceso-panel h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.acceso-panel p { opacity: .92; }
+.acceso-beneficios { list-style: none; margin-top: 1rem; display: grid; gap: .7rem; }
+.acceso-beneficios li { display: flex; gap: .6rem; align-items: baseline; }
+.acceso-beneficios li span { color: #a5d6a7; font-weight: 700; }
+.acceso-lado { display: flex; align-items: center; justify-content: center; padding: 2.5rem 1.5rem; background: #fafdfa; }
+.acceso-caja { width: 100%; max-width: 420px; }
+.acceso-caja h1 { font-size: 1.8rem; margin-bottom: .3rem; }
+.acceso-sub { color: #4a5a4d; margin-bottom: 1.6rem; }
+.acceso-form { display: flex; flex-direction: column; gap: 1rem; padding: 1.6rem; border-radius: 18px; background: white;
+  box-shadow: 0 10px 30px rgba(27, 94, 58, .12); border: 1px solid var(--verde-claro); }
+.acceso-form label { display: flex; flex-direction: column; gap: .3rem; font-weight: 600; }
+.acceso-form input { width: 100%; padding: .8rem; border: 2px solid var(--verde-claro); border-radius: 10px; font: inherit;
+  background: #fafdfa; transition: border-color .2s, box-shadow .2s; }
+.acceso-form input:focus { outline: none; border-color: var(--verde); box-shadow: 0 0 0 3px rgba(46, 125, 50, .15); }
+.acceso-form input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px #f1faf2 inset; -webkit-text-fill-color: var(--texto); }
+.campo-password { position: relative; display: block; font-weight: 400; }
+.campo-password input { padding-right: 3rem; }
+.ojo { position: absolute; right: .4rem; top: 50%; transform: translateY(-50%); background: none; border: none;
+  cursor: pointer; font-size: 1.15rem; padding: .35rem; border-radius: 8px; }
+.ojo:hover { background: var(--verde-claro); }
+.fuerza small { color: #4a5a4d; }
+.fuerza-barra { display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem; margin-bottom: .3rem; }
+.fuerza-barra span { height: 6px; border-radius: 999px; background: #dfe8e1; transition: background .2s; }
+.nivel-1 span:nth-child(-n+1) { background: #e53935; }
+.nivel-2 span:nth-child(-n+2) { background: #fbc02d; }
+.nivel-3 span { background: var(--verde); }
+.error-caja { padding: .7rem .9rem; border-radius: 10px; background: #fdecea; border: 1px solid #f5c2bd; }
+
+@media (max-width: 800px) {
+  .acceso { grid-template-columns: 1fr; min-height: 0; }
+  .acceso-panel { align-items: center; text-align: center; padding: 2rem 1.25rem; gap: .5rem; }
+  .acceso-ilustracion { max-width: 130px; }
+  .acceso-beneficios { display: none; }
+  .acceso-lado { padding: 1.75rem 1.25rem 2.5rem; }
+}
