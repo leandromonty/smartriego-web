@@ -472,6 +472,7 @@ p { line-height: 1.55; }
 .cuenta { max-width: 860px; margin: -3rem auto 0; padding: 0 1.5rem 4rem; position: relative; }
 .aviso-ok { margin-bottom: 1rem; padding: .8rem 1rem; border-radius: 12px; background: white; border: 2px solid var(--verde); color: var(--verde-oscuro); font-weight: 600; box-shadow: 0 6px 18px rgba(27, 94, 58, .15); }
 
+.aviso-error { border-color: #c62828; color: #b71c1c; }
 .selector-avatar { margin-bottom: 1.5rem; padding: 1.4rem; border-radius: 18px; background: white; box-shadow: 0 10px 30px rgba(27, 94, 58, .15); border: 1px solid var(--verde-claro); }
 .selector-cabecera { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .selector-cabecera h2 { font-size: 1.2rem; }
