@@ -9,6 +9,7 @@ import Contacto from './pages/Contacto'
 import Acceso from './pages/Acceso'
 import Checkout from './pages/Checkout'
 import Cuenta from './pages/Cuenta'
+import Admin from './pages/Admin'
 import ScrollAlInicio from './components/ScrollAlInicio'
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/registro" element={<Acceso modo="registro" />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/cuenta" element={<Cuenta />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />
