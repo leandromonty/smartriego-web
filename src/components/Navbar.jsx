@@ -19,6 +19,7 @@ export default function Navbar() {
         <NavLink to="/tienda" onClick={cerrar}>Tienda</NavLink>
         <NavLink to="/faq" onClick={cerrar}>FAQ</NavLink>
         <NavLink to="/contacto" onClick={cerrar}>Contacto</NavLink>
+        {usuario?.rol === 'admin' && <NavLink to="/admin" onClick={cerrar}>Admin</NavLink>}
 
         {usuario ? (
           <>
