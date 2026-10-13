@@ -23,14 +23,23 @@ export default function Cuenta() {
   const [copiado, setCopiado] = useState(null)
   const [avatar, setAvatar] = useState(() => leerAvatar(usuario))
   const [eligiendo, setEligiendo] = useState(false)
-  const [aviso, setAviso] = useState('')
+  const [aviso, setAviso] = useState(null)
 
   useEffect(() => {
     if (!token) return
-    Promise.all([api('/dispositivos', { token }), api('/pedidos', { token })])
-      .then(([disp, ped]) => {
+    Promise.all([
+      api('/dispositivos', { token }),
+      api('/pedidos', { token }),
+      api('/auth/me', { token }),
+    ])
+      .then(([disp, ped, yo]) => {
         setDispositivos(disp)
         setPedidos(ped)
+        // el avatar guardado en el servidor manda (así coincide con la app)
+        if (yo.avatar && AVATARES.some((a) => a.id === yo.avatar)) {
+          setAvatar(yo.avatar)
+          guardarAvatarLocal(usuario, yo.avatar)
+        }
       })
       .catch((err) => {
         if (err.message === 'Token inválido o vencido') {
@@ -56,12 +65,23 @@ export default function Cuenta() {
     }
   }
 
-  const elegirAvatar = (a) => {
-    setAvatar(a.id)
-    // PENDIENTE: cuando el servidor guarde el avatar, también se envía acá.
+  const mostrarAviso = (texto, esError = false) => {
+    setAviso({ texto, esError })
+    setTimeout(() => setAviso(null), 2800)
+  }
+
+  const elegirAvatar = async (a) => {
+    const anterior = avatar
+    setAvatar(a.id) // se ve al instante; si el servidor falla, se revierte
     guardarAvatarLocal(usuario, a.id)
-    setAviso(`¡Listo! Ahora sos ${a.nombre}.`)
-    setTimeout(() => setAviso(''), 2500)
+    try {
+      await api('/auth/me', { metodo: 'PATCH', cuerpo: { avatar: a.id }, token })
+      mostrarAviso(`¡Listo! Ahora sos ${a.nombre}.`)
+    } catch (err) {
+      setAvatar(anterior)
+      guardarAvatarLocal(usuario, anterior)
+      mostrarAviso(`No se pudo guardar el avatar: ${err.message}`, true)
+    }
   }
 
   const fecha = (iso) => new Date(iso).toLocaleDateString('es-AR')
@@ -95,7 +115,11 @@ export default function Cuenta() {
       </header>
 
       <section className="cuenta">
-        {aviso && <p className="aviso-ok" role="status">✅ {aviso}</p>}
+        {aviso && (
+          <p className={`aviso-ok ${aviso.esError ? 'aviso-error' : ''}`} role="status">
+            {aviso.esError ? '⚠️' : '✅'} {aviso.texto}
+          </p>
+        )}
 
         {eligiendo && (
           <div className="selector-avatar">
