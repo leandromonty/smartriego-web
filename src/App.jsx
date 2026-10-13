@@ -9,11 +9,13 @@ import Contacto from './pages/Contacto'
 import Acceso from './pages/Acceso'
 import Checkout from './pages/Checkout'
 import Cuenta from './pages/Cuenta'
+import ScrollAlInicio from './components/ScrollAlInicio'
 
 export default function App() {
   return (
     <>
       <Navbar />
+      <ScrollAlInicio />
       <CarritoDrawer />
       <main>
         <Routes>
